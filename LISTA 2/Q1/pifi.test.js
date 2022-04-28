@@ -1,5 +1,5 @@
-const { beforeEach, test, expect } = require('@jest/globals')
-const Pilha_fila = require('./pilha_fila')
+import { beforeEach, test, expect } from '@jest/globals';
+import Pilha_fila from './pilha_fila';
 let pl_f;
 
 beforeEach(()=>{
