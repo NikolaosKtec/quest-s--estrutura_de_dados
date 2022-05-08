@@ -6,13 +6,13 @@ class Node{
 
 }
 
-class lista_Pilha{
+class lista_Fila{
     constructor(){
         this.head = new Node()
         
     }
 
-    push(dado){
+    enqueue(dado){
         if(!this.isEmpty()){
             
             this.append(dado)
@@ -22,41 +22,24 @@ class lista_Pilha{
         
     }
 
-    top(){
+    dequeue(){
+        
+        this.removeFirst()
+    }
+
+    front(){
     let dado = 0
         if(!this.isEmpty()){
             let aux = this.head.proximo
-            let cont =0 
-            let size = this.length()
-            while(aux != null){
-                ++cont
-                
-                if( (size) == cont ){
-                    dado = aux.dado
-                    this.head.proximo = aux
-                }
-                aux = aux.proximo
-            }
+            dado = aux.dado
+            
+            return dado
         }
+        
         return dado
     }
 
-    pop(){
-        if(!this.isEmpty()){
-            let aux = this.head.proximo
-            let cont =0 
-            let size = this.length()
-            while(aux != null){
-                ++cont
-                
-                if(size == cont ){
-                    
-                    this.head.proximo = aux
-                }
-                aux = aux.proximo
-            }
-        } 
-    }
+   
 
     add(dado){
         let novo_no = new Node(dado)
@@ -141,4 +124,4 @@ class lista_Pilha{
         return cont
     }
 }
-module.exports = lista_Pilha;
+module.exports = lista_Fila;

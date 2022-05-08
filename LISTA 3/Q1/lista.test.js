@@ -6,14 +6,36 @@ beforeEach(()=>{
     l = new lista()
 })
 
-test('add?',()=>{
-    l.add('A')
-    l.add('B')
-    l.add('C')
+test('length?',()=>{
+    l.push('h')
+    l.push('i')
+    l.push('i')
+    l.push('i')
+    expect(l.length()).toBe(4)
+})
+test('push?',()=>{
+    l.push('A')
+    l.push('B')
+    l.push('C')
     //console.log(l.dado)
     expect(l.length()).toBe(3)
 })
-test('append?',()=>{
+test('top',()=>{
+    l.push('A')
+    l.push('B')
+    l.push('C')
+    console.log(l.dado)
+    l.top()
+    l.top()
+
+    expect(l.top()).toBe('C')
+    expect(l.length()).toBe(1)
+})
+
+
+   
+
+/*test('append?',()=>{
     l.add('h')
     l.add('i')
     l.append('A')
@@ -34,34 +56,29 @@ test('remove fst?',()=>{
     l.removeFirst()
     expect(l.length()).toBe(3)
    
-})
+})*/
 
 test('e vazio?',()=>{
-    l.add('h')
-    l.add('i')
-
-    l.removeFirst()
-    l.removeFirst()
+    l.push('h')
+    l.push('i')
+console.log(l.length())
+    l.top()
+    l.top()
+    
+    expect(l.length()).toBe(-1)
     expect(()=>{
-        l.removeFirst()
+        l.top()
     }).toThrowError('lista vazia!')
 })
 
-test('length?',()=>{
-    l.add('h')
-    l.add('i')
-    l.add('i')
-    l.add('i')
-    expect(l.length()).toBe(4)
-})
 
 test('search?',()=>{
-    l.add('h')
-    l.add('e')
-    l.add('l')
-    l.add('l')
-    l.add('o')
-    l.add('!')
+    l.push('h')
+    l.push('e')
+    l.push('l')
+    l.push('l')
+    l.push('o')
+    l.push('!')
 
     expect(l.search('!')).toBe(true)
     expect(l.search('o')).toBe(true)
